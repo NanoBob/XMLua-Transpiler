@@ -87,9 +87,18 @@ Then build and run the solution, and it will watch and files in the `src` direct
 		<argument>5</argument>
 	</call>
 	<call function="print">
+		<argument>10</argument>
+		<argument>15</argument>
+	</call>
+	<call function="print">
 		<argument>
 			<call function="func">
 				<argument>5</argument>
+			</call>
+		</argument>
+		<argument>
+			<call function="func">
+				<argument>10</argument>
 			</call>
 		</argument>
 	</call>

@@ -15,12 +15,12 @@ namespace XMLua_Compiler.Compilers
             foreach(XmlNode child in node.ChildNodes)
             {
                 INodeCompiler compiler = CompilerFactory.Create(child);
-                result += compiler.Compile(child) + ",";
+                result += compiler.Compile(child) + ", ";
             }
 
             if (node.ChildNodes.Count > 0)
             {
-                return Utils.ReplaceLastOccurrence(result, ",", "") + ")\n";
+                return Utils.ReplaceLastOccurrence(result, ", ", "") + ")\n";
             }
             return result + ")\n";
         }
