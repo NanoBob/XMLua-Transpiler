@@ -10,7 +10,22 @@ namespace XMLua_Compiler.Compilers
         public string Compile(XmlNode node, int indent = 0)
         {
             string indentString = new string('\t', indent);
-            return indentString + node.InnerText;
+            var children = node.ChildNodes;
+            if (children.Count > 0 && children[0].NodeType != XmlNodeType.Text)
+            {
+                string result = "\n";
+
+                foreach(XmlNode child in children)
+                {
+                    INodeCompiler compiler = CompilerFactory.Create(child);
+                    result += compiler.Compile(child,indent + 1);
+                }
+
+                return result;
+            } else
+            {
+                return indentString + node.InnerText;
+            }
         }
     }
 }

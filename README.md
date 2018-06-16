@@ -86,7 +86,15 @@ Then build and run the solution, and it will watch and files in the `src` direct
 	<call function="func">
 		<argument>5</argument>
 	</call>
+	<call function="print">
+		<argument>
+			<call function="func">
+				<argument>5</argument>
+			</call>
+		</argument>
+	</call>
 </script>
+
 ```
 
 ## Transpiles to:
@@ -101,7 +109,7 @@ function func(x)
 	else
 		print("hey it's nothing I know!")
 	end
-	for( i = 1, 10, 1 ) do
+	for i = 1, 10, 1  do
 		print(i)
 	end
 	for key,value in ipairs({1, 2, 3}) do
@@ -112,5 +120,9 @@ function func(x)
 end
 func(x)
 func(5)
+print(
+	func(5)
+)
+
 ```
 
