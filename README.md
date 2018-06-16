@@ -129,9 +129,11 @@ function func(x)
 end
 func(x)
 func(5)
+print(10, 15)
 print(
 	func(5)
+, 
+	func(10)
 )
-
 ```
 
