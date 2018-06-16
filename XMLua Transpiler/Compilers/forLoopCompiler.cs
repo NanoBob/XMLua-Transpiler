@@ -11,7 +11,7 @@ namespace XMLua_Compiler.Compilers
         {
             string result = "";
             string indentString = new string('\t', indent);
-            result += String.Format("{0}for( {1} = {2}, {3}, {4} ) do\n", 
+            result += String.Format("{0}for {1} = {2}, {3}, {4}  do\n", 
                 indentString,
                 node.Attributes["variable"].InnerText,
                 node.Attributes["start"].InnerText,
